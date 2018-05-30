@@ -122,6 +122,11 @@ instance, with a growth factor of 1.6 and a limit max of 100,000, Ruby
 would grow its malloc limit by 60% each time until 60% was bigger than
 100,000, and then it would grow by 100,000 each time.
 
+The malloc (but not oldmalloc) limit will also slowly decrease back
+toward what you specify, by around 2% with each garbage
+collection. But not below the specified limit. The 2% is a "magic
+number" and not configurable.
+
 Slots are slightly different than the malloc and oldmalloc limits -
 slots are fully managed by Ruby itself, while Ruby uses a system
 allocator to managed the malloc and oldmalloc systems.

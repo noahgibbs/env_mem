@@ -12,14 +12,9 @@ module EnvMem
     stats.scan(/:([a-zA-Z_]+)\s*=>\s*([0-9]+)/).each { |key, val| stats_hash[key] = val.to_i }
 
     <<SHELL
-# gc_params.heap_init_slots
 export RUBY_GC_HEAP_INIT_SLOTS=#{stats_hash["heap_live_slots"]}
-
-# gc_params.malloc_limit_min
-export RUBY_GC_MALLOC_LIMIT=
-
-# gc_params.oldmalloc_limit_min
-export RUBY_GC_OLDMALLOC_LIMIT=
+export RUBY_GC_MALLOC_LIMIT=#{stats_hash["malloc_increase_bytes_limit"]}
+export RUBY_GC_OLDMALLOC_LIMIT=#{stats_hash["oldmalloc_increase_bytes_limit"]}
 
 SHELL
   end
