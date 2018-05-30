@@ -9,19 +9,10 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Noah Gibbs"]
   spec.email         = ["the.codefolio.guy@gmail.com"]
 
-  spec.summary       = %q{TODO: Write a short summary, because Rubygems requires one.}
-  spec.description   = %q{TODO: Write a longer description or delete this line.}
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.summary       = %q{EnvMem takes a GC.stat dump and produce a memory-optimized script for your large Ruby app.}
+  spec.description   = %q{EnvMem allows you to dump your GC.stat information from a long-running server, then produce a simple shellscript to set up your Ruby memory environment variables to match that configuration. This improves startup time slightly and allows you finer-grain control over your memory setup. If you've ever found Ruby memory environment variables on a web page and used them to try to speed up your app, this is a better approach.}
+  spec.homepage      = "https://github.com/noahgibbs/env_mem"
   spec.license       = "MIT"
-
-  # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
-  # to allow pushing to a single host or delete this section to allow pushing to any host.
-  if spec.respond_to?(:metadata)
-    spec.metadata['allowed_push_host'] = "TODO: Set to 'http://mygemserver.com'"
-  else
-    raise "RubyGems 2.0 or newer is required to protect against " \
-      "public gem pushes."
-  end
 
   spec.files         = `git ls-files -z`.split("\x0").reject do |f|
     f.match(%r{^(test|spec|features)/})

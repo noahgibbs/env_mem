@@ -1,0 +1,16 @@
+#!/usr/bin/env ruby
+
+if ARGV.size < 1
+  STDERR.puts "You must supply a filename for the GC.stat dump!"
+  exit -1
+end
+
+devel_dir = File.join(__dir__, "..", "lib")
+if File.exist? devel_dir
+  $LOAD_PATH.unshift devel_dir
+end
+require "env_mem"
+
+out = EnvMem.gc_stat_to_shell File.read(ARGV[0]).chomp
+
+puts out
