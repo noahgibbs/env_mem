@@ -162,6 +162,10 @@ Here is a list of the variables in question:
 
 ### Limitations
 
+First: EnvMem assumes you're using the latest Ruby or something close
+to it. If you want to improve speed and memory use in Ruby and you're
+running an old version, fix that first.
+
 There are a *lot* of things you can do with the Ruby environment
 variables, and many different applications with different needs. Right
 now, EnvMem tries to do a bit to help you. But there's always room for
