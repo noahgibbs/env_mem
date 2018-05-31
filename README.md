@@ -80,10 +80,9 @@ challenge. Here's something I've tried with a large Rails server that
 has worked okay:
 
 ~~~ ruby
-pid = Process.pid
-File.open("gc_stats_#{pid}_start.txt", "w") { |f| f.print GC.stats.inspect }
+File.open("gc_stats_#{Process.pid}_start.txt", "w") { |f| f.print GC.stats.inspect }
 at_exit {
-  File.open("gc_stats_#{pid}_stop.txt", "w") { |f| f.print GC.stats.inspect }
+  File.open("gc_stats_#{Process.pid}_stop.txt", "w") { |f| f.print GC.stats.inspect }
 }
 ~~~
 
